@@ -50,7 +50,7 @@ p{text-wrap:pretty}
 .topbar .btn{border-radius:999px}
 .topbar:focus-within{transform:translateX(-50%);opacity:1;pointer-events:auto}
 /* Leave room below the floating nav on desktop */
-@media(min-width:981px){.hero{padding-top:112px!important}}
+@media(min-width:981px){.hero{padding-top:82px!important}}
 
 /* Anchor scroll alignment:
    Sections have their own internal padding, so their top edge should align flush with the viewport top (Y=0).
@@ -103,7 +103,8 @@ section[id],.section[id]{scroll-margin-top:0!important}
 
 /* Content width: aligned to the floating nav pill (1180px) on desktop */
 @media(min-width:981px){
-  .wrap{max-width:1180px!important;padding-left:0!important;padding-right:0!important}
+  .wrap{max-width:none!important;width:min(calc(100% - 32px),1180px)!important;padding-left:0!important;padding-right:0!important;margin-left:auto!important;margin-right:auto!important}
+  .topbar .wrap{width:auto!important}
   .topbar .wrap{max-width:none!important;padding-left:20px!important;padding-right:10px!important}
 }
 
@@ -139,3 +140,34 @@ section[id],.section[id]{scroll-margin-top:0!important}
 #process .steps>li,#process .steps>li.seen{box-shadow:none!important}
 /* Plan note under "Hire an admin...": remove the purple left line */
 .client-time{border-left:0!important}
+
+/* Onboarding comparison heading: first sentence stays on one line on desktop */
+@media(min-width:641px){.nowrap-line{white-space:nowrap}}
+
+/* Onboarding "different kind" heading: second line in the brand orange */
+.orange-line{color:#f55809}
+
+/* Hero path links ("Starting fresh?" / "Already on HubSpot?"): keep both on one line on desktop */
+@media(min-width:641px){.path-links{display:flex;flex-wrap:nowrap;gap:12px}.path-links a{white-space:nowrap}}
+
+/* Why Growlyze cards: match the card design (stacked dark card, bordered white cards, even gaps) */
+#why .why-grid{gap:20px}
+#why .why{background:#fffdf8;border:1px solid #e0d5e7;border-radius:20px;padding:26px 26px 28px;display:flex;flex-direction:column;gap:12px}
+#why .why.ai{background:#ece4f7;border-color:#ece4f7}
+#why .why.feature{grid-column:span 2;background:#140827;border-color:#140827;color:#f5f0e6;padding:38px 40px;display:flex;flex-direction:column;justify-content:flex-start}
+#why .why.feature p{max-width:60ch}
+#why .why.feature blockquote{margin-top:18px}
+
+/* Process circles (implementation): same purple, white numbers, and no overlap on phones */
+#process .step .n,#process .step:last-child .n{background:#9a57ff!important;color:#fff!important;border-color:#140827!important}
+@media(max-width:900px){#process .step .n{position:relative!important;left:auto!important;top:auto!important;display:flex!important;margin:0 0 14px!important;width:44px;height:44px}#process .step{padding-top:0}}
+
+/* Why migrations go wrong: dark background (#140827) with light heading text */
+#risks{background:#140827!important}
+#risks .section-head h2{color:#F5F0E6!important}
+#risks .section-head p{color:rgba(245,240,230,.75)!important}
+#risks .eyebrow{color:#C3A0FF!important}
+
+/* Nav bar corners: rounded corners like the buttons, not a full pill */
+.topbar{border-radius:16px!important}
+.topbar .btn{border-radius:12px!important}
