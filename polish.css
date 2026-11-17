@@ -81,10 +81,30 @@ section[id],.section[id]{scroll-margin-top:0!important}
 /* Nav pill: one solid colour everywhere (matches the grey-purple bar), so it doesn't turn dark over the hero */
 .topbar{background:rgba(88,80,106,.97)!important;-webkit-backdrop-filter:none;backdrop-filter:none}
 
-/* Written quote popup: show the HubSpot form embed; hide the old step form (its script stays intact) */
-#quote-modal .fstep,#quote-modal .done{display:none!important}
-#quote-modal .hs-form-embed{padding:0 24px 24px}
-#quote-modal .hs-form-embed iframe{display:block;width:100%;height:1331px;border:none;border-radius:8px}
+/* Shared request form */
+#form-modal {
+  width: min(680px, calc(100% - 32px));
+  max-width: none;
+  max-height: calc(100dvh - 32px);
+  margin: auto;
+  padding: 0;
+  border: 0;
+  overscroll-behavior: contain;
+  scroll-padding-top: 64px;
+}
+#form-modal::backdrop { background: rgba(10, 4, 20, .68); backdrop-filter: blur(10px); }
+#form-modal .dialog-head {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--paper);
+}
+#form-modal .close { flex: none; display: grid; place-items: center; width: 44px; height: 44px; }
+#form-modal .hs-form-embed { padding: 0 8px 8px; }
+#form-modal .summary-bar { margin: 0 8px 8px; }
+#form-modal iframe { display: block; width: 100%; border: 0; border-radius: 8px; }
 
 /* Why Growlyze: bento layout (dark feature card spans two columns, lavender and white cards) */
 @media(min-width:981px){
